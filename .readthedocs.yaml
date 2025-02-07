@@ -7,21 +7,20 @@ version: 2
 
 # Build settings
 build:
-  os: ubuntu-22.04 # Using a stable LTS version
+  os: ubuntu-22.04  # Using a stable LTS version
   tools:
-    python: "3.11" # Your project's Python version
+    python: "3.11"  # Your project's Python version
 
 # Sphinx configuration
 sphinx:
-  configuration: source/conf.py # Updated to your 'source' directory
+  configuration: source/conf.py  # Updated to your 'source' directory
 
 # Documentation formats to build
-formats:
-  - html
+formats:  # Remove 'html' and ensure correct indentation
   - pdf
   - epub
 
 # Python dependencies
 python:
   install:
-    - requirements: requirements.txt # Your 'requirements.txt' in the base directory
+    - requirements: requirements.txt  # Your 'requirements.txt' in the base directory
