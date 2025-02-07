@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-finecore-docs documentation
+finecore-api documentation
 ===========================
 
 Welcome to the finecore-docs documentation!
@@ -16,14 +16,15 @@ This documentation will guide you through the features and usage of finecore.
    :caption: Contents:
 
    introduction
-   usage
-   faq
+   card
+   bankdetails
+   merchant
 
 Features
 --------
 
-- Feature 1: Description of feature 1.
-- Feature 2: Description of feature 2.
-- Feature 3: Description of feature 3.
+- Card : Description goes here.
+- Bank Details: Description goes here.
+- Merhant: Description goes here.
 
 .. index:: main index
