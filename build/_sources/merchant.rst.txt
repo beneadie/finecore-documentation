@@ -1,7 +1,7 @@
-Merhant
+Merchant
 ============
 
-Merhant
+Merchant
 --------
 
 This documentation will guide you through the features and usage of finecore.
