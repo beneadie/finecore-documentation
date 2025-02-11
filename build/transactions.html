@@ -86,7 +86,7 @@
 <p><strong>Description:</strong></p>
 <p>This endpoint initiates a bank transfer. The required fields are amount, sortCode, narration, accountNumber, accountName, and metadata.</p>
 <p><strong>Endpoint:</strong></p>
-<p>GET  <a class="reference external" href="https://stagingapi.finecore.co/v1//transactions">https://stagingapi.finecore.co/v1//transactions</a>/{customer_id}/</p>
+<p>GET  <a class="reference external" href="https://stagingapi.finecore.co/v1/transactions/customer/:customer_id/:reference">https://stagingapi.finecore.co/v1/transactions/customer/:customer_id/:reference</a></p>
 <p><strong>Response JSON Example:</strong></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;FIX&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ADD THIS WHEN POSTMAN WORKING AGAIN&quot;</span><span class="p">}</span>
 </pre></div>
@@ -95,7 +95,7 @@
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
 
 <span class="n">customer_id</span> <span class="o">=</span> <span class="s2">&quot;your-customer-id-here&quot;</span>  <span class="c1"># Replace with the actual customer ID</span>
-<span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://stagingapi.finecore.co/v1/transactions/customer/</span><span class="si">{</span><span class="n">customer_id</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://stagingapi.finecore.co/v1/transactions/customer/</span><span class="si">{</span><span class="n">customer_id</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">transactionreference</span><span class="si">}</span><span class="s2">&quot;</span>
 <span class="n">api_key</span> <span class="o">=</span> <span class="s2">&quot;your-api-key-here&quot;</span>  <span class="c1"># Replace with your actual API key</span>
 
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
@@ -104,13 +104,6 @@
 <span class="p">}</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
-
-<span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Success&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Failed with status code:&quot;</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>

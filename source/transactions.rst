@@ -13,7 +13,7 @@ This endpoint initiates a bank transfer. The required fields are amount, sortCod
 
 **Endpoint:**
 
-GET  https://stagingapi.finecore.co/v1//transactions/{customer_id}/
+GET  https://stagingapi.finecore.co/v1/transactions/customer/:customer_id/:reference
 
 **Response JSON Example:**
 
@@ -28,7 +28,7 @@ GET  https://stagingapi.finecore.co/v1//transactions/{customer_id}/
    import requests
 
    customer_id = "your-customer-id-here"  # Replace with the actual customer ID
-   url = f"https://stagingapi.finecore.co/v1/transactions/customer/{customer_id}"
+   url = f"https://stagingapi.finecore.co/v1/transactions/customer/{customer_id}/{transactionreference}"
    api_key = "your-api-key-here"  # Replace with your actual API key
 
    headers = {
@@ -38,9 +38,3 @@ GET  https://stagingapi.finecore.co/v1//transactions/{customer_id}/
 
    response = requests.get(url, headers=headers)
 
-   if response.status_code == 200:
-       print("Success")
-       print(response.json())
-   else:
-       print("Failed with status code:", response.status_code)
-       print(response.text)
