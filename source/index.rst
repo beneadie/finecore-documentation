@@ -16,15 +16,9 @@ This documentation will guide you through the features and usage of finecore.
    :caption: Contents:
 
    introduction
-   card
-   bankdetails
-   merchant
-
-Features
---------
-
-- Card : Description goes here.
-- Bank Details: Description goes here.
-- Merhant: Description goes here.
+   api_key
+   wallet
+   transactions
+   banktransfer
 
 .. index:: main index

@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bank Transfer &mdash; finecore-docs  documentation</title>
+  <title>Customer Wallet &mdash; finecore-docs  documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
 
@@ -19,8 +19,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Bank Transfer" href="banktransfer.html" />
-    <link rel="prev" title="Card" href="card.html" /> 
+    <link rel="next" title="Transactions" href="transactions.html" />
+    <link rel="prev" title="Setting Up API Key" href="api_key.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -45,11 +45,15 @@
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="card.html">Card</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Bank Transfer</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id1">Bank Transfer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_key.html">Setting Up API Key</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Customer Wallet</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#create-customer-wallet">Create Customer Wallet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#credit-customer">Credit Customer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fetch-specific-wallet">Fetch Specific Wallet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fetch-all-customer-wallets">Fetch All Customer Wallets</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="transactions.html">Transactions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="banktransfer.html">Bank Transfer</a></li>
 </ul>
 
@@ -67,9 +71,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Bank Transfer</li>
+      <li class="breadcrumb-item active">Customer Wallet</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="_sources/bankdetails.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/wallet.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -77,14 +81,12 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="bank-transfer">
-<h1>Bank Transfer<a class="headerlink" href="#bank-transfer" title="Link to this heading"></a></h1>
-<section id="id1">
-<h2>Bank Transfer<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
-<p><strong>Initiate a Bank Transfer</strong></p>
-<p>This documentation will guide you through the features and usage of finecore.</p>
+  <section id="customer-wallet">
+<h1>Customer Wallet<a class="headerlink" href="#customer-wallet" title="Link to this heading"></a></h1>
+<section id="create-customer-wallet">
+<h2>Create Customer Wallet<a class="headerlink" href="#create-customer-wallet" title="Link to this heading"></a></h2>
 <p><strong>Description:</strong></p>
-<p>This endpoint initiates a bank transfer. The required fields are amount, sortCode, narration, accountNumber, accountName, and metadata.</p>
+<p>This endpoint creates a customer wallet. The required fields are bvn, first_name, last_name, date_of_birth, phone_number, email, and address.</p>
 <p><strong>Endpoint:</strong></p>
 <p>POST  <a class="reference external" href="https://stagingapi.finecore.co/v1/wallets">https://stagingapi.finecore.co/v1/wallets</a></p>
 <p><strong>Request JSON Example:</strong></p>
@@ -120,13 +122,12 @@
 <span class="w">     </span><span class="p">}</span>
 </pre></div>
 </div>
-<p><strong>Response Python Demonstration:</strong></p>
-<p>This is an example documentation using reStructuredText.</p>
+<p><strong>Python Demonstration:</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
 
 <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://stagingapi.finecore.co/v1/wallets&quot;</span>
-<span class="n">api_key</span> <span class="o">=</span> <span class="s2">&quot;flk_6f1025328641a6b2b3b309cee58a27aa_1784140885&quot;</span>  <span class="c1"># Replace with your actual API key</span>
+<span class="n">api_key</span> <span class="o">=</span> <span class="s2">&quot;your-api-key-here&quot;</span>  <span class="c1"># Replace with your actual API key</span>
 
 <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;bvn&quot;</span><span class="p">:</span> <span class="s2">&quot;11317307361&quot;</span><span class="p">,</span>
@@ -147,14 +148,98 @@
 </pre></div>
 </div>
 </section>
+<section id="credit-customer">
+<h2>Credit Customer<a class="headerlink" href="#credit-customer" title="Link to this heading"></a></h2>
+<p><strong>Description:</strong></p>
+<p>This endpoint credits a customer wallet. The required fields are amount and customer_id.</p>
+<p><strong>Endpoint:</strong></p>
+<p>POST  <a class="reference external" href="https://stagingapi.finecore.co/v1/wallets/credit">https://stagingapi.finecore.co/v1/wallets/credit</a></p>
+<p><strong>Request JSON Example:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;amount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;customer_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;e0aec692-0de0-4857-b448-471645f46ebd&quot;</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;metadata&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="nt">&quot;reason&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;for test example&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">   </span><span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Response JSON Example:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;FIX&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ADD THIS WHEN POSTMAN WORKING AGAIN&quot;</span><span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Python Demonstration:</strong></p>
+<p>This is an example documentation using reStructuredText.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fix when postman is working again&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="fetch-specific-wallet">
+<h2>Fetch Specific Wallet<a class="headerlink" href="#fetch-specific-wallet" title="Link to this heading"></a></h2>
+<p><strong>Description:</strong></p>
+<p>This endpoint fetches a specific customer wallet. The required fields are customer_id.</p>
+<p><strong>Endpoint:</strong></p>
+<p>GET   <a class="reference external" href="https://stagingapi.finecore.co/v1/wallets">https://stagingapi.finecore.co/v1/wallets</a>/{{customer_id}}</p>
+<p><strong>Response JSON Example:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;FIX&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ADD THIS WHEN POSTMAN WORKING AGAIN&quot;</span><span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Python Demonstration:</strong></p>
+<p>This is an example documentation using reStructuredText.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="n">customer_id</span> <span class="o">=</span> <span class="s2">&quot;your-customer-id-here&quot;</span>  <span class="c1"># Replace with the actual customer ID</span>
+<span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://stagingapi.finecore.co/v1/wallets/</span><span class="si">{</span><span class="n">customer_id</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="n">api_key</span> <span class="o">=</span> <span class="s2">&quot;your-api-key-here&quot;</span>  <span class="c1"># Replace with your actual API key</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;X-API-Key&quot;</span><span class="p">:</span> <span class="n">api_key</span>
+<span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Success!&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Failed with status code:&quot;</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="fetch-all-customer-wallets">
+<h2>Fetch All Customer Wallets<a class="headerlink" href="#fetch-all-customer-wallets" title="Link to this heading"></a></h2>
+<p><strong>Description:</strong></p>
+<p>This endpoint initiates a bank transfer. The required fields are bvn, first_name, last_name, date_of_birth, phone_number, email and address.</p>
+<p><strong>Endpoint:</strong></p>
+<p>GET   <a class="reference external" href="https://stagingapi.finecore.co/v1/wallets">https://stagingapi.finecore.co/v1/wallets</a></p>
+<p><strong>Response JSON Example:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;FIX&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ADD THIS WHEN POSTMAN WORKING AGAIN&quot;</span><span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Python Demonstration:</strong></p>
+<p>This is an example documentation using reStructuredText.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://stagingapi.finecore.co/v1/wallets&quot;</span>
+<span class="n">api_key</span> <span class="o">=</span> <span class="s2">&quot;your-api-key-here&quot;</span>  <span class="c1"># Replace with your actual API key</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;X-API-Key&quot;</span><span class="p">:</span> <span class="n">api_key</span>
+<span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="card.html" class="btn btn-neutral float-left" title="Card" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="banktransfer.html" class="btn btn-neutral float-right" title="Bank Transfer" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="api_key.html" class="btn btn-neutral float-left" title="Setting Up API Key" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="transactions.html" class="btn btn-neutral float-right" title="Transactions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

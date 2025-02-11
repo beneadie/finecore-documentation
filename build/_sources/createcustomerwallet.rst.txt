@@ -1,17 +1,17 @@
-Bank Transfer
-=============
+Create Customer Wallet
+======================
 
 
-Bank Transfer
--------------
+Create Customer Wallet
+----------------------
 
-**Initiate a Bank Transfer**
+**How to ceate a customer wallet**
 
 This documentation will guide you through the features and usage of finecore.
 
 **Description:**
 
-This endpoint initiates a bank transfer. The required fields are amount, sortCode, narration, accountNumber, accountName, and metadata.
+This endpoint initiates a bank transfer. The required fields are bvn, first_name, last_name, date_of_birth, phone_number, email and address.
 
 **Endpoint:**
 
@@ -54,7 +54,7 @@ POST  https://stagingapi.finecore.co/v1/wallets
           "user_id": "bec56c05-1257-47b0-9d4b-46a6c256999a" }
           }
 
-**Response Python Demonstration:**
+**Python Demonstration:**
 
 This is an example documentation using reStructuredText.
 
@@ -64,7 +64,7 @@ This is an example documentation using reStructuredText.
    import json
 
    url = "https://stagingapi.finecore.co/v1/wallets"
-   api_key = "flk_6f1025328641a6b2b3b309cee58a27aa_1784140885"  # Replace with your actual API key
+   api_key = "your-api-key-here"  # Replace with your actual API key
 
    payload = {
        "bvn": "11317307361",
@@ -82,3 +82,45 @@ This is an example documentation using reStructuredText.
    }
 
    response = requests.post(url, headers=headers, data=json.dumps(payload))
+
+
+
+
+Credit Customer
+---------------
+
+**Credit Customer**
+
+This documentation will guide you through the features and usage of finecore.
+
+**Description:**
+
+This endpoint initiates a bank transfer. The required fields are bvn, first_name, last_name, date_of_birth, phone_number, email and address.
+
+**Endpoint:**
+
+POST  https://stagingapi.finecore.co/v1/wallets/credit
+
+**Request JSON Example:**
+
+.. code-block:: json
+
+     { "amount": 200,
+        "customer_id": "e0aec692-0de0-4857-b448-471645f46ebd",
+        "metadata": {
+        "reason": "for test example" }
+        }
+
+**Response JSON Example:**
+
+.. code-block:: json
+
+     {"FIX": "ADD THIS WHEN POSTMAN WORKING AGAIN"}
+
+**Python Demonstration:**
+
+This is an example documentation using reStructuredText.
+
+.. code-block:: python
+
+   print("Fix when postman is working again")
