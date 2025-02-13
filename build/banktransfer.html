@@ -81,8 +81,6 @@
 <h1>Bank Transfer<a class="headerlink" href="#bank-transfer" title="Link to this heading"></a></h1>
 <section id="id1">
 <h2>Bank Transfer<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
-<p><strong>Initiate a Bank Transfer</strong></p>
-<p>This documentation will guide you through the features and usage of finecore.</p>
 <p><strong>Description:</strong></p>
 <p>This endpoint initiates a bank transfer. The required fields are amount, sortCode, narration, accountNumber, accountName, and metadata.</p>
 <p><strong>Endpoint:</strong></p>
@@ -140,6 +138,29 @@
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">payload</span><span class="p">))</span>
 </pre></div>
 </div>
+<p><strong>Glossary of fields:</strong></p>
+<ul class="simple">
+<li><p>sortCode</p>
+<ul>
+<li><p>This is the bank identification number.</p></li>
+</ul>
+</li>
+<li><p>accountNumber</p>
+<ul>
+<li><p>This is the account number in the banks system.</p></li>
+</ul>
+</li>
+<li><p>environment</p>
+<ul>
+<li><p>This will only ever be &quot;LIVE&quot; and &quot;SANDBOX&quot;.</p></li>
+</ul>
+</li>
+<li><p>destination</p>
+<ul>
+<li><p>This is desitnation address is a combination of the accountNumber and sortCode.</p></li>
+</ul>
+</li>
+</ul>
 </section>
 </section>
 

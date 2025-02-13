@@ -10,9 +10,9 @@ Getting started with Finecore's API integration is straightforward and efficient
 
 - Sign up on our website: <finecore production link here>
 
-- API Integration: Once signed in, navigate to the "API Integration" section.
+- Once signed in, navigate to the "API Integration" section.
 
-- Generate Key: Generate your unique API key.
+- Generate your unique API key.
 
 **fincore api key**
 
@@ -20,6 +20,6 @@ Getting started with Finecore's API integration is straightforward and efficient
    :alt: Description of the image
    :width: 650px
 
-- Copy Key: Copy the secret key provided.
+- Copy the secret key provided.
 
-**In all your API calls, include this key as a header with the key name X-API-Key to ensure secure and authenticated communication with our services.**
+* **In all your API calls, include this key as a header with the key name "X-API-Key" to ensure secure and authenticated communication with our services.**

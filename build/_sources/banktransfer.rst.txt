@@ -5,10 +5,6 @@ Bank Transfer
 Bank Transfer
 -------------
 
-**Initiate a Bank Transfer**
-
-This documentation will guide you through the features and usage of finecore.
-
 **Description:**
 
 This endpoint initiates a bank transfer. The required fields are amount, sortCode, narration, accountNumber, accountName, and metadata.
@@ -75,3 +71,21 @@ POST https://stagingapi.finecore.co/v1/transfers/bank
    }
 
    response = requests.post(url, headers=headers, data=json.dumps(payload))
+
+**Glossary of fields:**
+
+* sortCode
+
+  - This is the bank identification number.
+
+* accountNumber
+
+  - This is the account number in the banks system.
+
+* environment
+
+  - This will only ever be "LIVE" and "SANDBOX".
+
+* destination
+
+  - This is desitnation address is a combination of the accountNumber and sortCode.

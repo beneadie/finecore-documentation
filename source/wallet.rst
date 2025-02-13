@@ -7,7 +7,8 @@ Create Customer Wallet
 
 **Description:**
 
-This endpoint creates a customer wallet. The required fields are bvn, first_name, last_name, date_of_birth, phone_number, email, and address.
+This endpoint creates a customer wallet.
+
 
 **Endpoint:**
 
@@ -78,6 +79,12 @@ POST  https://stagingapi.finecore.co/v1/wallets
    response = requests.post(url, headers=headers, data=json.dumps(payload))
 
 
+**Glossary of fields:**
+
+* bvn
+
+  - Bank Verification Number
+
 
 
 Credit Customer
@@ -138,19 +145,11 @@ POST  https://stagingapi.finecore.co/v1/wallets/credit
             "message": "insufficient merchant wallet balance"
         }
     }
-    {
-        "statusCode": 400,
-        "status": "error",
-        "error": {
-            "message": "insufficient merchant wallet balance"
-        }
-    }
+
 
 
 
 **Python Demonstration:**
-
-This is an example documentation using reStructuredText.
 
 .. code-block:: python
 
@@ -175,7 +174,44 @@ This is an example documentation using reStructuredText.
 
     response = requests.post(url, headers=headers, data=json.dumps(payload))
 
+**Glossary of fields:**
 
+* customer_id
+
+  - The identification number of the consumer.
+
+* metadata
+
+  - Additional data.
+
+  - Will be encrypted after being sent.
+
+* id
+
+  - Identification number for the transaction.
+
+  - Intended for bank and developers.
+
+* reference
+
+  - Another transaction identification number but meant for conusmers
+
+* environment
+
+  - Will only be "LIVE" or "SANDBOX"
+
+* merchant_id
+
+  - Identification number of merchant
+
+* destination
+
+  - Destination account for funds
+
+  - For credit transactions this should be null
+
+* description
+  - This should be null for credit transactions
 
 
 Fetch Specific Wallet
@@ -220,8 +256,6 @@ GET   https://stagingapi.finecore.co/v1/wallets/{{customer_id}}
 
 **Python Demonstration:**
 
-This is an example documentation using reStructuredText.
-
 .. code-block:: python
 
    import requests
@@ -237,7 +271,26 @@ This is an example documentation using reStructuredText.
 
    response = requests.get(url, headers=headers)
 
+**Glossary of fields:**
 
+* id
+
+  - This is the identification number of the wallet.
+* merchant_id
+
+  - This is the identification number of the merchant.
+
+* environment
+
+  - Will only be "LIVE" or "SANDBOX"
+
+* account_number
+
+  - Account number for the bank account on the bank partner's system.
+
+* user_id
+
+  - Identification number for the specific user in finecore system.
 
 
 
@@ -300,7 +353,6 @@ GET   https://stagingapi.finecore.co/v1/wallets
 
 **Python Demonstration:**
 
-This is an example documentation using reStructuredText.
 
 .. code-block:: python
 
@@ -315,3 +367,29 @@ This is an example documentation using reStructuredText.
    }
 
    response = requests.get(url, headers=headers)
+
+**Glossary of fields:**
+
+* id
+
+  - This is the identification number of the wallet.
+
+* customerId
+
+  - This is the identification number of the customer in the finecore system.
+
+* walletId
+
+  - This is the identification number of the wallet in tehe finecore system.
+
+* bankCode
+
+  - This is a code used to denote the bank partner.
+
+* accountNumber
+
+  - This is the account number within the bank's system.
+
+* accountReference
+
+  - This is the reference number for the account which can be displayed to the user.

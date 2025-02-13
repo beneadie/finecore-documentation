@@ -86,7 +86,7 @@
 <section id="create-customer-wallet">
 <h2>Create Customer Wallet<a class="headerlink" href="#create-customer-wallet" title="Link to this heading"></a></h2>
 <p><strong>Description:</strong></p>
-<p>This endpoint creates a customer wallet. The required fields are bvn, first_name, last_name, date_of_birth, phone_number, email, and address.</p>
+<p>This endpoint creates a customer wallet.</p>
 <p><strong>Endpoint:</strong></p>
 <p>POST  <a class="reference external" href="https://stagingapi.finecore.co/v1/wallets">https://stagingapi.finecore.co/v1/wallets</a></p>
 <p><strong>Request JSON Example:</strong></p>
@@ -147,6 +147,14 @@
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">payload</span><span class="p">))</span>
 </pre></div>
 </div>
+<p><strong>Glossary of fields:</strong></p>
+<ul class="simple">
+<li><p>bvn</p>
+<ul>
+<li><p>Bank Verification Number</p></li>
+</ul>
+</li>
+</ul>
 </section>
 <section id="credit-customer">
 <h2>Credit Customer<a class="headerlink" href="#credit-customer" title="Link to this heading"></a></h2>
@@ -193,17 +201,9 @@
 <span class="w">        </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;insufficient merchant wallet balance&quot;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;statusCode&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;error&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;error&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;insufficient merchant wallet balance&quot;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
 </pre></div>
 </div>
 <p><strong>Python Demonstration:</strong></p>
-<p>This is an example documentation using reStructuredText.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
 
@@ -226,6 +226,49 @@
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">payload</span><span class="p">))</span>
 </pre></div>
 </div>
+<p><strong>Glossary of fields:</strong></p>
+<ul class="simple">
+<li><p>customer_id</p>
+<ul>
+<li><p>The identification number of the consumer.</p></li>
+</ul>
+</li>
+<li><p>metadata</p>
+<ul>
+<li><p>Additional data.</p></li>
+<li><p>Will be encrypted after being sent.</p></li>
+</ul>
+</li>
+<li><p>id</p>
+<ul>
+<li><p>Identification number for the transaction.</p></li>
+<li><p>Intended for bank and developers.</p></li>
+</ul>
+</li>
+<li><p>reference</p>
+<ul>
+<li><p>Another transaction identification number but meant for conusmers</p></li>
+</ul>
+</li>
+<li><p>environment</p>
+<ul>
+<li><p>Will only be &quot;LIVE&quot; or &quot;SANDBOX&quot;</p></li>
+</ul>
+</li>
+<li><p>merchant_id</p>
+<ul>
+<li><p>Identification number of merchant</p></li>
+</ul>
+</li>
+<li><p>destination</p>
+<ul>
+<li><p>Destination account for funds</p></li>
+<li><p>For credit transactions this should be null</p></li>
+</ul>
+</li>
+<li><p>description
+- This should be null for credit transactions</p></li>
+</ul>
 </section>
 <section id="fetch-specific-wallet">
 <h2>Fetch Specific Wallet<a class="headerlink" href="#fetch-specific-wallet" title="Link to this heading"></a></h2>
@@ -259,7 +302,6 @@
 </pre></div>
 </div>
 <p><strong>Python Demonstration:</strong></p>
-<p>This is an example documentation using reStructuredText.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
 
 <span class="n">customer_id</span> <span class="o">=</span> <span class="s2">&quot;your-customer-id-here&quot;</span>  <span class="c1"># Replace with the actual customer ID</span>
@@ -274,6 +316,34 @@
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
 </pre></div>
 </div>
+<p><strong>Glossary of fields:</strong></p>
+<ul class="simple">
+<li><p>id</p>
+<ul>
+<li><p>This is the identification number of the wallet.</p></li>
+</ul>
+</li>
+<li><p>merchant_id</p>
+<ul>
+<li><p>This is the identification number of the merchant.</p></li>
+</ul>
+</li>
+<li><p>environment</p>
+<ul>
+<li><p>Will only be &quot;LIVE&quot; or &quot;SANDBOX&quot;</p></li>
+</ul>
+</li>
+<li><p>account_number</p>
+<ul>
+<li><p>Account number for the bank account on the bank partner's system.</p></li>
+</ul>
+</li>
+<li><p>user_id</p>
+<ul>
+<li><p>Identification number for the specific user in finecore system.</p></li>
+</ul>
+</li>
+</ul>
 </section>
 <section id="fetch-all-customer-wallets">
 <h2>Fetch All Customer Wallets<a class="headerlink" href="#fetch-all-customer-wallets" title="Link to this heading"></a></h2>
@@ -323,7 +393,6 @@
 </pre></div>
 </div>
 <p><strong>Python Demonstration:</strong></p>
-<p>This is an example documentation using reStructuredText.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
 
 <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://stagingapi.finecore.co/v1/wallets&quot;</span>
@@ -337,6 +406,39 @@
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
 </pre></div>
 </div>
+<p><strong>Glossary of fields:</strong></p>
+<ul class="simple">
+<li><p>id</p>
+<ul>
+<li><p>This is the identification number of the wallet.</p></li>
+</ul>
+</li>
+<li><p>customerId</p>
+<ul>
+<li><p>This is the identification number of the customer in the finecore system.</p></li>
+</ul>
+</li>
+<li><p>walletId</p>
+<ul>
+<li><p>This is the identification number of the wallet in tehe finecore system.</p></li>
+</ul>
+</li>
+<li><p>bankCode</p>
+<ul>
+<li><p>This is a code used to denote the bank partner.</p></li>
+</ul>
+</li>
+<li><p>accountNumber</p>
+<ul>
+<li><p>This is the account number within the bank's system.</p></li>
+</ul>
+</li>
+<li><p>accountReference</p>
+<ul>
+<li><p>This is the reference number for the account which can be displayed to the user.</p></li>
+</ul>
+</li>
+</ul>
 </section>
 </section>
 
