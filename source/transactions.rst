@@ -13,7 +13,7 @@ This endpoint fetches all transactions by a specific customer.
 
 **Endpoint:**
 
-GET  https://stagingapi.finecore.co/v1/transactions/customer/:customer_id
+GET  https://api.finecore.co/v1/transactions/customer/:customer_id
 
 **Response JSON Example:**
 
@@ -65,7 +65,7 @@ GET  https://stagingapi.finecore.co/v1/transactions/customer/:customer_id
    import requests
 
    customer_id = "2da3424b-1d1e-4155-a65e-d2347c37a73c"  # example customer ID
-   url = f"https://stagingapi.finecore.co/v1/transactions/customer/{customer_id}"
+   url = f"https://api.finecore.co/v1/transactions/customer/{customer_id}"
    api_key = "your-api-key-here"  # Replace with your actual API key
 
    headers = {
@@ -121,7 +121,7 @@ This endpoint fetches a single transaction by specific customer
 
 **Endpoint:**
 
-GET  https://stagingapi.finecore.co/v1/transactions/customer/:customer_id/:reference
+GET  https://api.finecore.co/v1/transactions/customer/:customer_id/:reference
 
 **Response JSON Example:**
 
@@ -154,7 +154,7 @@ GET  https://stagingapi.finecore.co/v1/transactions/customer/:customer_id/:refer
 
    transactionreference = "TXN-1736446870-9572309761397768" #example transaction reference
    customer_id = "2da3424b-1d1e-4155-a65e-d2347c37a73c"  # example customer ID
-   url = f"https://stagingapi.finecore.co/v1/transactions/customer/{customer_id}/{transactionreference}"
+   url = f"https://api.finecore.co/v1/transactions/customer/{customer_id}/{transactionreference}"
    api_key = "your-api-key-here"  # Replace with your actual API key
 
    headers = {
