@@ -8,7 +8,7 @@ Setting Up API Key
 
 Getting started with Finecore's API integration is straightforward and efficient. To set up your API key, follow these simple steps:
 
-- Sign up on our website: <finecore production link here>
+- Sign up on our website: https://app.finecore.co/login
 
 - Once signed in, navigate to the "API Integration" section.
 
