@@ -13,7 +13,7 @@ Join us in shaping the future of finance with our state-of-the-art API solutions
 
 Features
 --------
-
+- API Key Setup
 - Wallet Management
 - Transaction Logging
 - Bank transfers
