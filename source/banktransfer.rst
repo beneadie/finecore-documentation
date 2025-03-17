@@ -129,3 +129,65 @@ GET https://api.finecore.co/v1/transfers/banks
    }
 
    response = requests.get(url, headers=headers)
+
+
+Verify Bank Account Details
+---------------------------
+
+**Description:**
+
+This endpoint is a testing mecahnism to ensure that the bank account details entered are valid.
+
+**Endpoint:**
+
+POST https://api.finecore.co/v1/transfers/account
+
+
+**Request JSON Example:**
+
+.. code-block:: json
+
+     {
+     "sortCode": "000013",
+     "accountNumber": "1700263070"
+     }
+
+**Response JSON Example:**
+
+.. code-block:: json
+
+     {"success":true,
+     "message":"Successfully fetch account detail",
+     "data":{"bankCode":"000013","accountName":"SIMI MICHELLE","accountNumber":"1700263070"}}
+
+**Python Demonstration:**
+
+.. code-block:: python
+
+   import requests
+   import json
+
+   url = "https://api.finecore.co/v1/transfers/account"
+   api_key = "your-api-key-here"  # Replace with your actual API key
+
+   payload = {
+       "sort_code": "000013",
+       "account_number": "1700263070"
+   }
+
+   headers = {
+       "Content-Type": "application/json",
+       "X-API-Key": api_key
+   }
+
+   response = requests.post(url, headers=headers, data=json.dumps(payload))
+
+**Glossary of fields:**
+
+* sort_code (sortCode)
+
+  - This is the bank identification number.
+
+* account_number (accountNumber)
+
+  - This is the account number in the banks system.
