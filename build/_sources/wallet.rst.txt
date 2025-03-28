@@ -12,7 +12,7 @@ This endpoint creates a customer wallet.
 
 **Endpoint:**
 
-POST  https://stagingapi.finecore.co/v1/wallets
+POST  https://api.finecore.co/v1/wallets
 
 **Request JSON Example:**
 
@@ -58,7 +58,7 @@ POST  https://stagingapi.finecore.co/v1/wallets
    import requests
    import json
 
-   url = "https://stagingapi.finecore.co/v1/wallets"
+   url = "https://api.finecore.co/v1/wallets"
    api_key = "your-api-key-here"  # Replace with your actual API key
 
    payload = {
@@ -96,7 +96,7 @@ This endpoint credits a customer wallet. The required fields are amount, custome
 
 **Endpoint:**
 
-POST  https://stagingapi.finecore.co/v1/wallets/credit
+POST  https://api.finecore.co/v1/wallets/credit
 
 **Request JSON Example:**
 
@@ -156,7 +156,7 @@ POST  https://stagingapi.finecore.co/v1/wallets/credit
     import requests
     import json
 
-    url = "https://stagingapi.finecore.co/v1/wallets/credit"
+    url = "https://api.finecore.co/v1/wallets/credit"
     api_key = "your-api-key-here"  # Replace with your actual API key
 
     payload = {
@@ -223,7 +223,7 @@ This endpoint fetches a specific customer wallet. The required fields are custom
 
 **Endpoint:**
 
-GET   https://stagingapi.finecore.co/v1/wallets/{{customer_id}}
+GET   https://api.finecore.co/v1/wallets/{{customer_id}}
 
 
 **Response JSON Example:**
@@ -261,7 +261,7 @@ GET   https://stagingapi.finecore.co/v1/wallets/{{customer_id}}
    import requests
 
    customer_id = "your-customer-id-here"  # Replace with the actual customer ID
-   url = f"https://stagingapi.finecore.co/v1/wallets/{customer_id}"
+   url = f"https://api.finecore.co/v1/wallets/{customer_id}"
    api_key = "your-api-key-here"  # Replace with your actual API key
 
    headers = {
@@ -303,7 +303,7 @@ This endpoint initiates a bank transfer. The required fields are bvn, first_name
 
 **Endpoint:**
 
-GET   https://stagingapi.finecore.co/v1/wallets
+GET   https://api.finecore.co/v1/wallets
 
 
 
@@ -358,7 +358,7 @@ GET   https://stagingapi.finecore.co/v1/wallets
 
    import requests
 
-   url = "https://stagingapi.finecore.co/v1/wallets"
+   url = "https://api.finecore.co/v1/wallets"
    api_key = "your-api-key-here"  # Replace with your actual API key
 
    headers = {

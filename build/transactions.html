@@ -86,7 +86,7 @@
 <p><strong>Description:</strong></p>
 <p>This endpoint fetches all transactions by a specific customer.</p>
 <p><strong>Endpoint:</strong></p>
-<p>GET  <a class="reference external" href="https://stagingapi.finecore.co/v1/transactions/customer/:customer_id">https://stagingapi.finecore.co/v1/transactions/customer/:customer_id</a></p>
+<p>GET  <a class="reference external" href="https://api.finecore.co/v1/transactions/customer/:customer_id">https://api.finecore.co/v1/transactions/customer/:customer_id</a></p>
 <p><strong>Response JSON Example:</strong></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
 <span class="w">   </span><span class="nt">&quot;statusCode&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span>
@@ -130,7 +130,7 @@
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
 
 <span class="n">customer_id</span> <span class="o">=</span> <span class="s2">&quot;2da3424b-1d1e-4155-a65e-d2347c37a73c&quot;</span>  <span class="c1"># example customer ID</span>
-<span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://stagingapi.finecore.co/v1/transactions/customer/</span><span class="si">{</span><span class="n">customer_id</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://api.finecore.co/v1/transactions/customer/</span><span class="si">{</span><span class="n">customer_id</span><span class="si">}</span><span class="s2">&quot;</span>
 <span class="n">api_key</span> <span class="o">=</span> <span class="s2">&quot;your-api-key-here&quot;</span>  <span class="c1"># Replace with your actual API key</span>
 
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
@@ -187,7 +187,7 @@
 <p><strong>Description:</strong></p>
 <p>This endpoint fetches a single transaction by specific customer</p>
 <p><strong>Endpoint:</strong></p>
-<p>GET  <a class="reference external" href="https://stagingapi.finecore.co/v1/transactions/customer/:customer_id/:reference">https://stagingapi.finecore.co/v1/transactions/customer/:customer_id/:reference</a></p>
+<p>GET  <a class="reference external" href="https://api.finecore.co/v1/transactions/customer/:customer_id/:reference">https://api.finecore.co/v1/transactions/customer/:customer_id/:reference</a></p>
 <p><strong>Response JSON Example:</strong></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
 <span class="w">    </span><span class="nt">&quot;statusCode&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span>
@@ -213,7 +213,7 @@
 
 <span class="n">transactionreference</span> <span class="o">=</span> <span class="s2">&quot;TXN-1736446870-9572309761397768&quot;</span> <span class="c1">#example transaction reference</span>
 <span class="n">customer_id</span> <span class="o">=</span> <span class="s2">&quot;2da3424b-1d1e-4155-a65e-d2347c37a73c&quot;</span>  <span class="c1"># example customer ID</span>
-<span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://stagingapi.finecore.co/v1/transactions/customer/</span><span class="si">{</span><span class="n">customer_id</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">transactionreference</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://api.finecore.co/v1/transactions/customer/</span><span class="si">{</span><span class="n">customer_id</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">transactionreference</span><span class="si">}</span><span class="s2">&quot;</span>
 <span class="n">api_key</span> <span class="o">=</span> <span class="s2">&quot;your-api-key-here&quot;</span>  <span class="c1"># Replace with your actual API key</span>
 
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>

@@ -51,6 +51,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#id1">Bank Transfer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#get-bank-code-list">Get Bank Code List</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#verify-bank-account-details">Verify Bank Account Details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#user-transfer-to-bank-account">User Transfer to Bank Account</a></li>
 </ul>
 </li>
 </ul>
@@ -242,6 +243,77 @@
 <li><p>account_number (accountNumber)</p>
 <ul>
 <li><p>This is the account number in the banks system.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="user-transfer-to-bank-account">
+<h2>User Transfer to Bank Account<a class="headerlink" href="#user-transfer-to-bank-account" title="Link to this heading"></a></h2>
+<p><strong>Description:</strong></p>
+<p>This endpoint allows a user to transfer money out of their wallet to their bank account. The required fields are amount, sortCode, narration, accountNumber, accountName, metadata and customerId.</p>
+<p><strong>Endpoint:</strong></p>
+<p>POST <a class="reference external" href="https://api.finecore.co.finecore.co/v1/transfers/bank/customer">https://api.finecore.co.finecore.co/v1/transfers/bank/customer</a></p>
+<p><strong>Request JSON Example:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;amount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span>
+<span class="nt">&quot;sortCode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;000013&quot;</span><span class="p">,</span>
+<span class="nt">&quot;narration&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Testing&quot;</span><span class="p">,</span>
+<span class="nt">&quot;accountNumber&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1700263070&quot;</span><span class="p">,</span>
+<span class="nt">&quot;accountName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Obagunwa Emmanuel&quot;</span><span class="p">,</span>
+<span class="nt">&quot;metadata&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;reason&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;testing&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="nt">&quot;customerId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;4470430538&quot;</span><span class="w"> </span><span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Response JSON Example:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;statusCode&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">201</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span>
+<span class="w"> </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;8gg2fkvm-pl40-4r7n-a09j-l3mg86b64ms3&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;reference&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;TXN-1739183528-3ec9eab0cd83a820&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;currency&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;NGN&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;environment&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SANDBOX&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;balance_after&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10150</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;balance_before&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10250</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;merchant_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;d0c70a28-1023-484e-849f-3fb41cee743b&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;metadata&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;pb24JhY2NvdW50TmFtZSI6ICJPYmFndW53YSBiOiAiVGVzdGluZyIsICFbW1hbnVlbCIsICJ0b3RhbEFtb3VMTAwLCeyJ2YXQiOiAwLCAiYW1vdW50IjogjogIjAwMYmFndW53YSBFbW1hbnVlbCIsICJ0b3RhbEFDAxMyIsICJuYXJyYXRAiY2hhcmdlcyI6IDAsICJiYW5rTmFtZSI6ICJHVEJBTksgUExDIiwgInNvcnRDb2RlIudCI6IDEwMCwgImFjY291bnROdW1iZXIiOiAiMTcwMDI2MzA3MCIsICJ3YWxsZXRBY2NvdW50TmFtZSI6ICJGaW5lY29yZSBUZWNobm9sb2d5IExpbWl0ZWQiLCAiYWRkaXRpb25hbE1ldGFkYXRhIjogeyJyZWFzb24iOiAidGVzdGluZyJ9fQ==&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;amount&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;destination&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1700263070/000013&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Transfer of NGN100.00 to Obagunwa Emmanuel (1700263070/GTBANK PLC)/100040250210103208470558721501&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;DEBIT&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;category&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;BANK_TRANSFER&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Python Demonstration:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://api.finecore.co/v1/transfers/bank/customer&quot;</span>
+<span class="n">api_key</span> <span class="o">=</span> <span class="s2">&quot;your-api-key-here&quot;</span>  <span class="c1"># Replace with your actual API key</span>
+
+<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;amount&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+    <span class="s2">&quot;sortCode&quot;</span><span class="p">:</span> <span class="s2">&quot;000013&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;narration&quot;</span><span class="p">:</span> <span class="s2">&quot;Testing&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;accountNumber&quot;</span><span class="p">:</span> <span class="s2">&quot;1700263070&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;accountName&quot;</span><span class="p">:</span> <span class="s2">&quot;Obagunwa Emmanuel&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;reason&quot;</span><span class="p">:</span> <span class="s2">&quot;testing&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;customerId&quot;</span><span class="p">:</span> <span class="s2">&quot;4470430538&quot;</span>
+<span class="p">}</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;X-API-Key&quot;</span><span class="p">:</span> <span class="n">api_key</span>
+<span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">payload</span><span class="p">))</span>
+</pre></div>
+</div>
+<p><strong>Glossary of fields:</strong></p>
+<ul class="simple">
+<li><p>All previous fields are the same as the Bank Transfer endpoint</p></li>
+<li><p>customerId (Customer ID)</p>
+<ul>
+<li><p>This number of the specific customer and can be found in the Fetch All Wallets endpoint.</p></li>
 </ul>
 </li>
 </ul>
