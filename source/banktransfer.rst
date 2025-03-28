@@ -208,33 +208,36 @@ POST https://api.finecore.co.finecore.co/v1/transfers/bank/customer
 
 .. code-block:: json
 
-     { "amount": 100,
+     { "amount": 50,
      "sortCode": "000013",
-     "narration": "Testing",
-     "accountNumber": "1700263070",
-     "accountName": "Obagunwa Emmanuel",
-     "metadata": { "reason": "testing" },
-     "customerId": "4470430538" }
+     "narration": "Customer transfer",
+     "accountNumber": "0167421242",
+     "accountName": "Emmanuel Obagunwa",
+     "customerId": "0e72df4b-c0c1-4874-8f3d-d35ae5a6a60c",
+     "metadata": {"key": "value"} }
+
 
 **Response JSON Example:**
 
 .. code-block:: json
 
-     { "statusCode": 201, "status": "success",
-      "data": { "id": "8gg2fkvm-pl40-4r7n-a09j-l3mg86b64ms3",
-       "reference": "TXN-1739183528-3ec9eab0cd83a820",
-       "currency": "NGN",
-       "environment": "SANDBOX",
-       "balance_after": 10150,
-       "balance_before": 10250,
-       "merchant_id": "d0c70a28-1023-484e-849f-3fb41cee743b",
-       "metadata": "pb24JhY2NvdW50TmFtZSI6ICJPYmFndW53YSBiOiAiVGVzdGluZyIsICFbW1hbnVlbCIsICJ0b3RhbEFtb3VMTAwLCeyJ2YXQiOiAwLCAiYW1vdW50IjogjogIjAwMYmFndW53YSBFbW1hbnVlbCIsICJ0b3RhbEFDAxMyIsICJuYXJyYXRAiY2hhcmdlcyI6IDAsICJiYW5rTmFtZSI6ICJHVEJBTksgUExDIiwgInNvcnRDb2RlIudCI6IDEwMCwgImFjY291bnROdW1iZXIiOiAiMTcwMDI2MzA3MCIsICJ3YWxsZXRBY2NvdW50TmFtZSI6ICJGaW5lY29yZSBUZWNobm9sb2d5IExpbWl0ZWQiLCAiYWRkaXRpb25hbE1ldGFkYXRhIjogeyJyZWFzb24iOiAidGVzdGluZyJ9fQ==",
-       "amount": 100,
-       "status": "success",
-       "destination": "1700263070/000013",
-       "description": "Transfer of NGN100.00 to Obagunwa Emmanuel (1700263070/GTBANK PLC)/100040250210103208470558721501",
-       "type": "DEBIT",
-       "category": "BANK_TRANSFER" } }
+     {  "success": true,
+        "message": "You have successfully make a transfer",
+        "data": {
+            "id": "40cd2b51-e26d-42a7-b347-f9d181df58e2",
+            "reference": "TXN-1743150834-d528cb706bcd4a68",
+            "currency": "NGN",
+            "environment": "SANDBOX",
+            "balance_after": 550,
+            "balance_before": 600,
+            "merchant_id": "6f5c63ce-f525-4442-be11-a401658396d7",
+            "metadata": "eyJ2YXQiOiAwLjc1LCAiYW1vdW50IjogNTAsICJjaGFyZ2VzIjogMTAsICJiYW5rTmFtZSI6ICJHVEJBTksgUExDIiwgInNvcnRDb2RlIjogIjAwMDAxMyIsICJuYXJyYXRpb24iOiAiQ3VzdG9tZXIgdHJhbnNmZXIiLCAiYWNjb3VudE5hbWUiOiAiRW1tYW51ZWwgT2JhZ3Vud2EiLCAidG90YWxBbW91bnQiOiA2MC43NSwgImFjY291bnROdW1iZXIiOiAiMDE2NzQyMTI0MiIsICJ3YWxsZXRBY2NvdW50TmFtZSI6ICJTYW1zb24gRWRpZSIsICJhZGRpdGlvbmFsTWV0YWRhdGEiOiB7ImtleSI6ICJ2YWx1ZSJ9fQ==",
+            "amount": 50,
+            "status": "success",
+            "destination": "0167421242/000013",
+            "description": "Transfer of NGN50.00 to Emmanuel Obagunwa (0167421242/GTBANK PLC)/100040250328083356422632670862",
+            "type": "DEBIT",
+            "category": "BANK_TRANSFER"} }
 
 **Python Demonstration:**
 
@@ -246,17 +249,14 @@ POST https://api.finecore.co.finecore.co/v1/transfers/bank/customer
    url = "https://api.finecore.co/v1/transfers/bank/customer"
    api_key = "your-api-key-here"  # Replace with your actual API key
 
-   payload = {
-       "amount": 100,
-       "sortCode": "000013",
-       "narration": "Testing",
-       "accountNumber": "1700263070",
-       "accountName": "Obagunwa Emmanuel",
-       "metadata": {
-           "reason": "testing"
-       },
-       "customerId": "4470430538"
-   }
+   payload = { "amount": 50,
+      "sortCode": "000013",
+      "narration": "Customer transfer",
+      "accountNumber": "0167421242",
+      "accountName": "Emmanuel Obagunwa",
+      "customerId": "0e72df4b-c0c1-4874-8f3d-d35ae5a6a60c",
+      "metadata": {"key": "value"}
+    }
 
    headers = {
        "Content-Type": "application/json",
