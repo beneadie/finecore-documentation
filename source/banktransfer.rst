@@ -11,7 +11,7 @@ This endpoint initiates a bank transfer. The required fields are amount, sortCod
 
 **Endpoint:**
 
-POST https://api.finecore.co.finecore.co/v1/transfers/bank/{merchantId}
+POST https://api.finecore.co.finecore.co/v1/transfers/bank
 
 **Request JSON Example:**
 
@@ -51,7 +51,7 @@ POST https://api.finecore.co.finecore.co/v1/transfers/bank/{merchantId}
    import requests
    import json
 
-   url = "https://api.finecore.co/v1/transfers/bank/d0c70a28-1023-484e-849f-3fb41cee743b" #example merchantID
+   url = "https://api.finecore.co/v1/transfers/bank"
    api_key = "your-api-key-here"  # Replace with your actual API key
 
    payload = {
